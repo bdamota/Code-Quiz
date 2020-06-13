@@ -4,13 +4,30 @@
     box-sizing: border-box;
 }
 
+header {
+    margin-top: 20px;
+}
+
+.score {
+    font-family: Arial, Helvetica, sans-serif;
+    color: blueviolet;
+    margin-left: 25px;
+}
+
+.time {
+    text-align: right;
+    margin-top: -18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 40px;
+}
+
 h1 {
     font-family: Arial, Helvetica, sans-serif; 
     text-align: center;
     margin-top: 100px;
 }
 
-p {
+.rules {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 19px;
     text-align: center;
