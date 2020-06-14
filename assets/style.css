@@ -57,3 +57,50 @@ h1 {
 .btn:hover {
     background-color: plum;
 }
+
+#quiz {
+    display: none;
+    margin: 100px;
+    margin-left: 40%;
+    margin-right: 35%;
+    font-family: Arial, Helvetica, sans-serif;    
+}
+
+#question {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.option-1, .option-2, .option-3, .option-4{
+    border: none;
+    border-radius: 5px;
+    width: 160px;
+    height: 30px;
+    background-color: blueviolet;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-top: 7px;
+    color: white;
+    font-size: small;
+}
+
+.option-1:hover {
+    background-color: plum;
+}
+
+.option-2:hover {
+    background-color: plum;
+}
+
+.option-3:hover {
+    background-color: plum;
+}
+
+.option-4:hover {
+    background-color: plum;
+}
+
+#score-container {
+    display: none;
+}
+
