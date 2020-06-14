@@ -1,7 +1,10 @@
+/* add colors */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -13,7 +16,6 @@ a {
 }
 
 #high-score {
-    font-family: Arial, Helvetica, sans-serif;
     color: blueviolet;
     margin-left: 25px;
 }
@@ -21,27 +23,25 @@ a {
 .timer {
     text-align: right;
     margin-top: -15px;
-    font-family: Arial, Helvetica, sans-serif;
     margin-right: 40px;
     font-size: medium;
 }
 
 h1 {
-    font-family: Arial, Helvetica, sans-serif; 
     text-align: center;
     margin-top: 100px;
 }
 
 .rules {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 19px;
-    text-align: center;
+    text-align: justify;
     margin-top: 15px;
     margin-left: 33%;
     margin-right: 33%;
+    line-height: 1.3;
 }
 
-.btn {
+.btn-start {
     padding-left: 15px;
     padding-right: 15px;
     margin-top: 25px;
@@ -49,16 +49,14 @@ h1 {
     height: 45px;
     border: none;
     border-radius: 10px;
-    margin-left: 44%;
+    margin-left: 45%;
     background-color: blueviolet;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: medium;
-    cursor: pointer;
     outline: none;
 }
 
-.btn:hover {
+.btn-start:hover {
     background-color: plum;
 }
 
@@ -66,13 +64,13 @@ h1 {
     display: none;
     margin: 100px;
     margin-left: 40%;
-    margin-right: 35%;
-    font-family: Arial, Helvetica, sans-serif;    
+    margin-right: 35%; 
 }
 
 #question {
     font-size: x-large;
     font-weight: bold;
+    text-align: justify;
 }
 
 .option-1, .option-2, .option-3, .option-4{
@@ -105,25 +103,46 @@ h1 {
 }
 
 #output {
-    padding-left: 40%;
     padding-top: 20px;
-    margin-top: -90px;
-    font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
     color: gray;
+}
+
+#final {
+    margin: 100px;
+    margin-left: 40%;
+    margin-right: 35%;
 }
 
 #end {
     display: none;
     margin-top: 15%;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: x-large;
     padding-bottom: 10px;
 }
 
-#score {
+#result {
     display: none;
-    font-family: Arial, Helvetica, sans-serif;
+}
+
+#initials {
+    display: none;
+    padding-top: 10px;
+}
+
+#user-info {
+    background-color: blueviolet;
+    width: 60px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 10px;
+    outline: none;
+}
+
+#user-info:hover {
+    background-color: plum;
 }
 

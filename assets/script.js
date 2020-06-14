@@ -7,7 +7,7 @@ var choice1El = document.getElementById("1");
 var choice2El = document.getElementById("2");
 var choice3El = document.getElementById("3");
 var choice4El = document.getElementById("4");
-var scoreEl = document.getElementById("score");
+var resultEl = document.getElementById("result");
 var endEl = document.getElementById("end");
 var outputEl = document.getElementById("output")
 
@@ -106,19 +106,30 @@ function checkAnswer(answer) {
         renderQuestion();
     }
     else {
-        scoreRender();
+        //Stop Timer 
+        resultRender();
     }
 }; 
 
-function scoreRender() {
+var result = 75; 
+
+function resultRender() {
     end.style.display = "block";
     end.innerHTML = "All done!"
     quiz.style.display = "none"
-    score.style.display = "block";
-    var scoreEl = 
-    score.innerHTML = ("Your final score is " + 10 + "."); 
-    
+    result.style.display = "block";
+    var scoreEl = //capture timer at end 
+    result.innerHTML = ("Your final score is " + 10 + "."); 
+   captureInput();
 };
+
+function captureInput() {
+    initials.style.display = "block";  
+    //capture and save info to local 
+    //link high scores to link
+};
+
+//add buttons for go back and clear high scores & css
 
 
 
