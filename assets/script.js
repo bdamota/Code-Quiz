@@ -11,7 +11,7 @@ var resultEl = document.getElementById("result");
 var endEl = document.getElementById("end");
 var outputEl = document.getElementById("output")
 
-var timeLeft = 15;
+var timeLeft = 5;
 
 // Timer Function 
 function counterReader() {
@@ -98,7 +98,7 @@ function checkAnswer(answer) {
     }
     else {
        outputEl.innerHTML = "Wrong!"
-       //subtract 10 from time left
+       timeLeft -=10;
     }
     if(runningQuestionIndex < lastQuestionIndex) {
         runningQuestionIndex++;
@@ -115,6 +115,7 @@ function resultRender() {
     end.innerHTML = "All done!"
     quiz.style.display = "none"
     result.style.display = "block";
+
     resultEl = timeLeft
     result.innerHTML = ("Your final score is " + timeLeft + "."); 
     captureInput();
