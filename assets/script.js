@@ -11,7 +11,7 @@ var scoreEl = document.getElementById("score")
 
 // Timer Function 
 function counterReader() {
-    var timeLeft = 75;
+    var timeLeft = 15;
 
     var timeInterval = setInterval(function() {
         timerEl.textContent = "Time:" + timeLeft + "s";
@@ -79,25 +79,24 @@ function renderQuestion() {
 // Check Answers
 function checkAnswer(answer) {
     if(questions[runningQuestionIndex].correct == answer) {
-        return("Correct!")
+        output.innerHTML = "Correct!"
     }
     else {
-        timerEl -10;
+       output.innerHTML = "Wrong!"
     }
     if(runningQuestionIndex < lastQuestionIndex) {
         runningQuestionIndex++;
         renderQuestion();
     }
     else {
-        clearInterval(???)
         scoreRender();
     }
 }; 
 
 function scoreRender() {
     score.style.display = "block";
-    var scoreTotal = ???;
-    score.innerHTML = "<p>" + scoreTotal + "</p>"
+    var scoreEl = 
+    score.innerHTML = "<p>" + 10 + "</p>"
 };
 
 function startQuiz() {
