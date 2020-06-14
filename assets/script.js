@@ -2,13 +2,6 @@
 // Variable Declarations 
 var timerEl = document.getElementById("countdown")
 
- //The array of questions 
- var questions = [
-    { q:'The sky is blue.', a: 't' },
-    { q: 'Snow is cold.', a: 't' },
-    { q: 'Water is dry.', a: 'f' }
-];
-
 // Timer Function 
 function prepareGame() {
     var timeLeft = 60;
