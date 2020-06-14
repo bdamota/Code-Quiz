@@ -7,6 +7,24 @@ var choice1El = document.getElementById("1");
 var choice2El = document.getElementById("2");
 var choice3El = document.getElementById("3");
 var choice4El = document.getElementById("4");
+var scoreEl = document.getElementById("score")
+
+// Timer Function 
+function counterReader() {
+    var timeLeft = 75;
+
+    var timeInterval = setInterval(function() {
+        timerEl.textContent = "Time:" + timeLeft + "s";
+        timeLeft--;
+
+        if (timeLeft === 0) {
+           timerEl.textContent = "Time:0s";
+           clearInterval(timeInterval);
+        }
+    
+    }, 1000);
+};
+
 //The array of questions 
 var questions = [
     { question: 'Commonly used data types DO NOT include:', 
@@ -57,6 +75,7 @@ function renderQuestion() {
     choice3El.innerHTML = q.choice3;
     choice4El.innerHTML = q.choice4;
 };
+
 // Check Answers
 function checkAnswer(answer) {
     if(questions[runningQuestionIndex].correct == answer) {
@@ -64,7 +83,6 @@ function checkAnswer(answer) {
     }
     else {
         answerIsWrong();
-        timeLeft = -10
     }
     if(runningQuestionIndex < lastQuestionIndex) {
         runningQuestionIndex++;
@@ -75,29 +93,19 @@ function checkAnswer(answer) {
         scoreRender();
     }
 }; 
-// Timer Function 
-function counterReader() {
-    var timeLeft = 60;
 
-    var timeInterval = setInterval(function() {
-        timerEl.textContent = "Time:" + timeLeft + "s";
-        timeLeft--;
-
-        if (timeLeft === 0) {
-           timerEl.textContent = "";
-           clearInterval(timeInterval);
-           output();
-        }
-    
-    }, 1000);
+function scoreRender() {
+    score.style.display = "block";
+    var scoreTotal = timeLeft;
+    score.innerHTML = "<p>" + scoreTotal + "</p>"
 };
 
 function startQuiz() {
     startEl.style.dispay = "none";
     mainEl.style.display = "none";
     renderQuestion();
+    quiz.style.display = "block"
     counterReader();
-    quizEl.style.display = "block"
 };
 
 //Variable for Start Quiz Button

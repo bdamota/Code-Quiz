@@ -10,7 +10,7 @@
         <header>
             <div class="container">
                 <a id= "high-score" href="url">View High Scores</a>
-                <h2 id="countdown"></h2>
+                <h2 class= "timer" id="countdown">Time:0s</h2>
             </div>
         </header>
         <main>
@@ -20,9 +20,7 @@
                 <button class="btn" id="start-quiz" type="submit">Start Quiz!</button>
             </div>
             <div id= "quiz">
-                <div id= "question">
-                    <p>Question</p>
-                </div>
+                <div id= "question"></div>
                     <div id= "choices">
                         <div class="choice option-1" id="1" onclick="checkAnswer('1')"></div>
                         <div class="choice option-2" id="2" onclick="checkAnswer('2')"></div>
@@ -30,7 +28,7 @@
                         <div class="choice option-4" id="4" onclick="checkAnswer('4')"></div>
                     </div>
             </div>
-            <div id= score-container></div>
+            <div id= score></div>
         </main> 
         <script src="./assets/script.js"></script>
     </body>
