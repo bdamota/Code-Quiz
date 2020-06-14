@@ -11,11 +11,10 @@ var resultEl = document.getElementById("result");
 var endEl = document.getElementById("end");
 var outputEl = document.getElementById("output")
 
+var timeLeft = 15;
 
 // Timer Function 
 function counterReader() {
-    var timeLeft = 15;
-
     var timeInterval = setInterval(function() {
         timerEl.textContent = "Time:" + timeLeft + "s";
         timeLeft--;
@@ -86,7 +85,6 @@ function startQuiz() {
     quizEl.style.display = "block";
     counterReader();
 };
-
 //Variable for Start Quiz Button
 var startEl = document.getElementById("start-quiz");
 
@@ -100,27 +98,26 @@ function checkAnswer(answer) {
     }
     else {
        outputEl.innerHTML = "Wrong!"
+       //subtract 10 from time left
     }
     if(runningQuestionIndex < lastQuestionIndex) {
         runningQuestionIndex++;
         renderQuestion();
     }
     else {
-        //Stop Timer 
         resultRender();
     }
 }; 
 
-var result = 75; 
-
+//Score Quiz
 function resultRender() {
     end.style.display = "block";
     end.innerHTML = "All done!"
     quiz.style.display = "none"
     result.style.display = "block";
-    var scoreEl = //capture timer at end 
-    result.innerHTML = ("Your final score is " + 10 + "."); 
-   captureInput();
+    resultEl = timeLeft
+    result.innerHTML = ("Your final score is " + timeLeft + "."); 
+    captureInput();
 };
 
 function captureInput() {

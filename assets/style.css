@@ -64,13 +64,13 @@ h1 {
     display: none;
     margin: 100px;
     margin-left: 40%;
-    margin-right: 35%; 
 }
 
 #question {
     font-size: x-large;
     font-weight: bold;
-    text-align: justify;
+    text-align: left;
+    margin-right: 28%; 
 }
 
 .option-1, .option-2, .option-3, .option-4{
@@ -106,12 +106,13 @@ h1 {
     padding-top: 20px;
     font-style: italic;
     color: gray;
+    font-size: larger;
 }
 
 #final {
     margin: 100px;
     margin-left: 40%;
-    margin-right: 35%;
+    margin-right: 30%;
 }
 
 #end {
