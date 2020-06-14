@@ -79,24 +79,24 @@ function renderQuestion() {
 // Check Answers
 function checkAnswer(answer) {
     if(questions[runningQuestionIndex].correct == answer) {
-        answerIsCorrect();
+        return("Correct!")
     }
     else {
-        answerIsWrong();
+        timerEl -10;
     }
     if(runningQuestionIndex < lastQuestionIndex) {
         runningQuestionIndex++;
-        questionRender();
+        renderQuestion();
     }
     else {
-        clearInterval(timeInterval)
+        clearInterval(???)
         scoreRender();
     }
 }; 
 
 function scoreRender() {
     score.style.display = "block";
-    var scoreTotal = timeLeft;
+    var scoreTotal = ???;
     score.innerHTML = "<p>" + scoreTotal + "</p>"
 };
 
