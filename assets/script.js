@@ -7,7 +7,10 @@ var choice1El = document.getElementById("1");
 var choice2El = document.getElementById("2");
 var choice3El = document.getElementById("3");
 var choice4El = document.getElementById("4");
-var scoreEl = document.getElementById("score")
+var scoreEl = document.getElementById("score");
+var endEl = document.getElementById("end");
+var outputEl = document.getElementById("output")
+
 
 // Timer Function 
 function counterReader() {
@@ -34,7 +37,7 @@ var questions = [
     choice4 : "4. numbers",
     correct: "3"
     },
-    { question: "Arrays in JacaScript can be used to store ________.", 
+    { question: "Arrays in JavaScript can be used to store ________.", 
     choice1 : "1. numbers and strings",
     choice2 : "2. other arrays",
     choice3 : "3. booleans",
@@ -76,13 +79,27 @@ function renderQuestion() {
     choice4El.innerHTML = q.choice4;
 };
 
+function startQuiz() {
+    startEl.style.dispay = "none";
+    mainEl.style.display = "none";
+    renderQuestion();
+    quizEl.style.display = "block";
+    counterReader();
+};
+
+//Variable for Start Quiz Button
+var startEl = document.getElementById("start-quiz");
+
+// Listener Event to write password on click of "Start Quiz" button
+startEl.addEventListener("click", startQuiz);
+
 // Check Answers
 function checkAnswer(answer) {
     if(questions[runningQuestionIndex].correct == answer) {
-        output.innerHTML = "Correct!"
+        outputEl.innerHTML = "Correct!"
     }
     else {
-       output.innerHTML = "Wrong!"
+       outputEl.innerHTML = "Wrong!"
     }
     if(runningQuestionIndex < lastQuestionIndex) {
         runningQuestionIndex++;
@@ -94,21 +111,14 @@ function checkAnswer(answer) {
 }; 
 
 function scoreRender() {
+    end.style.display = "block";
+    end.innerHTML = "All done!"
+    quiz.style.display = "none"
     score.style.display = "block";
     var scoreEl = 
-    score.innerHTML = "<p>" + 10 + "</p>"
+    score.innerHTML = ("Your final score is " + 10 + "."); 
+    
 };
 
-function startQuiz() {
-    startEl.style.dispay = "none";
-    mainEl.style.display = "none";
-    renderQuestion();
-    quiz.style.display = "block"
-    counterReader();
-};
 
-//Variable for Start Quiz Button
-var startEl = document.getElementById("start-quiz");
 
-// Listener Event to write password on click of "Start Quiz" button
-startEl.addEventListener("click", startQuiz);

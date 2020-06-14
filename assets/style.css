@@ -104,7 +104,26 @@ h1 {
     background-color: plum;
 }
 
+#output {
+    padding-left: 40%;
+    padding-top: 20px;
+    margin-top: -90px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    color: gray;
+}
+
+#end {
+    display: none;
+    margin-top: 15%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    padding-bottom: 10px;
+}
+
 #score {
     display: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
