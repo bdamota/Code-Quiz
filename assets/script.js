@@ -124,7 +124,7 @@ function resultRender() {
 function captureInput() {
     initials.style.display = "block";  
     //capture and save info to local 
-    //link high scores to link
+    //link high scores to lin
 };
 
 //add buttons for go back and clear high scores & css
