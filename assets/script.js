@@ -1,5 +1,5 @@
 // Variable Declarations 
-var highScoreLink = document.getElementById("score")
+var header = document.getElementById("header")
 var intro = document.getElementById("intro");
 var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
@@ -13,10 +13,10 @@ var endMessage = document.getElementById("endMessage");
 var result = document.getElementById("result");
 var initials= document.getElementById("initials");
 var submitButton = document.getElementById("userInfo");
-var highScoreButtons = document.getElementById("highScoreButtons");
+var highScore = document.getElementById("highScore");
 var goBackBtn = document.getElementById("goBack");
 var clearBtn = document.getElementById("clear");
-
+var scoreList = document.getElementById("scorelist");
 
 //The array of questions 
 var questions = [
@@ -55,12 +55,12 @@ var questions = [
     choice4 : "4. console.log",
     correct: "4"
     },
-];  
+]  
 
 //Challenge Page
 quiz.style.display = "none";
 finalScore.style.display = "none";
-highScoreButtons.style.display = "none";
+highScore.style.display = "none";
 
 //Variable for Start Quiz Button
 var startBtn = document.getElementById("startBtn");
@@ -131,7 +131,7 @@ function checkAnswer(answer) {
 //Score Quiz
 function resultRender() {
    quiz.style.display = "none";
-   highScoreButtons.style.display = "none";
+   highScore.style.display = "none";
    finalScore.style.display = "block";
 
    if (timeLeft === 0 || questions.length -1) { 
@@ -155,32 +155,20 @@ renderFinalScores();
 function renderInitials() {
     var contactInfo = localStorage.getItem("contactInfo");
 }
+//debugger;
 renderInitials();
-showHighScores();
+highScorePage();
 });
 
-function showHighScores() {
-    header.style.display = "none";  
-    intro.style.display = "none"; 
-    quiz.style.display = "none"; 
-    finalScore.style.display = "none"; 
+function highScorePage () {
+    score.style.display = "none";
+    startBtn.style.display = "none";
+    quiz.style.display = "none";
+    endMessage.style.display = "none";
+    finalScore.style.display = "none";
     submitButton.style.display = "none"; 
-    initials.style.display = "none"; 
-  
-    highScoreButtons.style.display = "block"; 
-  
-  // PRINTS HIGH SCORES 
-  var highScoreHead = [];
-  
-  for (var i = 0; i < highScoreHead.length; i++) {
-    var highScoreHead = highScoreHead[i];
-  
-    var li = document.createElement("li");
-    li.textContent = highScores;
-    getInitials.appendChild(li);
-    secondsLeft.appendChild(li);
-  }
-  }
+    highScore.style.display = "block";
+};
 
   // GO BACK BUTTON EVENT liSTENER 
 goBack.addEventListener("click", function() { // Go back to the home page
@@ -197,5 +185,5 @@ goBack.addEventListener("click", function() { // Go back to the home page
   // Click to view high scores
   score.addEventListener("click", function() {
     intro.style.display = "none"; 
-    showHighScores();
+    highScorePage();
   });

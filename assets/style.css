@@ -1,4 +1,8 @@
-/* add colors */
+:root {
+    --primary-color: blueviolet;
+    --secondary-color: plum;
+    --tertiary-color: white;
+  }
 
 /* Apply to all elements*/
 * {
@@ -15,7 +19,7 @@
 
 #score {
     text-decoration: none;
-    color: blueviolet;
+    color: var(--primary-color);
     margin-left: 25px;
 }
 
@@ -50,14 +54,14 @@
     border: none;
     border-radius: 10px;
     margin-left: 45%;
-    background-color: blueviolet;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
     font-size: medium;
     outline: none;
 }
 
 .btnStart:hover {
-    background-color: plum;
+    background-color: var(--secondary-color);
 }
 
 /* Quiz Style */
@@ -82,30 +86,30 @@ ul {
     border-radius: 5px;
     width: 160px;
     height: 30px;
-    background-color: blueviolet;
+    background-color: var(--primary-color);
     margin-top: 10px;
     padding-left: 10px;
-    padding-top: 3px;
-    color: white;
+    padding-top: 2px;
+    color: var(--tertiary-color);
     font-size: small;
     text-align: left;
     outline: none;
 }
 
 .option-1:hover {
-    background-color: plum;
+    background-color: var(--secondary-color);
 }
 
 .option-2:hover {
-    background-color: plum;
+    background-color: var(--secondary-color);
 }
 
 .option-3:hover {
-    background-color: plum;
+    background-color: var(--secondary-color);
 }
 
 .option-4:hover {
-    background-color: plum;
+    background-color: var(--secondary-color);
 }
 
 #answerOutput {
@@ -136,33 +140,41 @@ ul {
 }
 
 #userInfo {
-    background-color: blueviolet;
+    background-color: var(--primary-color);
     width: 60px;
     height: 20px;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: var(--tertiary-color);
     font-size: 12px;
     outline: none;
 }
 
 #userInfo:hover {
-    background-color: plum;
+    background-color: var(--secondary-color);
 }
 
 /* High Scores Style*/
-#highScoreButtons {
+#highScore {
     display: none;
     margin-top: 15%;;
     padding-bottom: 10px;
     text-align: center;
 }
 
+#listLine {
+    background-color: var(--secondary-color);
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 #clear, #goBack {
-    background-color: blueviolet;
+    background-color: var(--primary-color);
     height: 20px;
     margin-top: 10px;
-    color: white;
+    color: var(--tertiary-color);
     border: none;
     border-radius: 5px;
     outline: none;
@@ -177,10 +189,10 @@ ul {
 }
 
 #goBack:hover {
-    background-color: plum;
+    background-color: var(--secondary-color);
 }
 
 #clear:hover {
-    background-color: plum;
+    background-color: var(--secondary-color);
 }
 
