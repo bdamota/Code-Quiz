@@ -14,7 +14,7 @@ A timed quiz that tests users' coding knowledge. Project to fulfill the followin
 * JavaScript
 
 ## FUNCTIONALITY AND APPEARANCE REQUIREMENTS:
-https://github.com/bdamota/Password-Generator/blob/master/03-javascript-homework-demo.png
+https://github.com/bdamota/Code-Quiz/blob/master/04-web-apis-homework-demo-1.gif
 
 ## LINK TO FINAL SCREENSHOT:
 https://github.com/bdamota/Password-Generator/blob/master/Screen%20Shot%202020-06-15%20at%2012.10.43%20AM.png
