@@ -1,6 +1,6 @@
 // Variable Declarations 
 var mainEl = document.getElementById("main")
-var timerEl = document.getElementById("countdown");
+var timerEl = document.getElementById("timer");
 var quizEl = document.getElementById("quiz");
 var questionEl = document.getElementById("question");
 var choice1El = document.getElementById("1");
@@ -11,7 +11,7 @@ var resultEl = document.getElementById("result");
 var endEl = document.getElementById("end");
 var outputEl = document.getElementById("output")
 
-var timeLeft = 5;
+var timeLeft = 15;
 
 // Timer Function 
 function counterReader() {
@@ -19,14 +19,13 @@ function counterReader() {
         timerEl.textContent = "Time:" + timeLeft + "s";
         timeLeft--;
 
-        if (timeLeft === 0) {
-           timerEl.textContent = "Time:0s";
+        if(timeLeft === 0) {
+           timerEl.textContent = "Time:0";
            clearInterval(timeInterval);
         }
-    
+
     }, 1000);
 };
-
 //The array of questions 
 var questions = [
     { question: 'Commonly used data types DO NOT include:', 
@@ -109,23 +108,49 @@ function checkAnswer(answer) {
     }
 }; 
 
+
 //Score Quiz
 function resultRender() {
     end.style.display = "block";
     end.innerHTML = "All done!"
     quiz.style.display = "none"
-    result.style.display = "block";
-
-    resultEl = timeLeft
-    result.innerHTML = ("Your final score is " + timeLeft + "."); 
-    captureInput();
+    final.style.display = "block";
+    //resultEl = timeLeft;
+    result.innerHTML = ("Your final score is " + timeLeft + ".");
+    initials.style.display = "block";   
+    renderCaptureInput();
 };
 
-function captureInput() {
-    initials.style.display = "block";  
-    //capture and save info to local 
+var userID = document.querySelector("#contact");
+var submitButton = document.querySelector("#userinfo");
+//var userInitalsSpanEl = document.querySelector("#userInitials");
+
+function renderCaptureInput() {
+    var userID = localStorage.getItem("contact");
+    //userInitialsSpanEl.textContent = contact;
+};
+    renderCaptureInput();
+
+function displayMessage(type, message) {
+        contact.textContent = message;
+        contact.setAttribute("class", type);
+      }
+
+      submitButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        final.style.dislpay = "none";
+        highscore.style.display = "block";
+      
+        var contact = document.querySelector("#contact").value;
+      
+          localStorage.setItem("contact", contact);
+          renderCaptureInput();
+        });
+
+        displayMessage();
     //link high scores to link
-};
+
 
 //add buttons for go back and clear high scores & css
 

@@ -7,18 +7,22 @@
         <title>Code Quiz</title>
     </head>
     <body>
+         <!---Header with timer and high score link-->
         <header>
-            <div class="container">
-                <a id= "high-score" href="url">View High Scores</a>
-                <h2 class= "timer" id="countdown">Time:0s</h2>
+            <div class="header">
+                <a id= "score" href="#">View High Scores</a>
+                <h2 id="timer"></h2>
             </div>
         </header>
-        <main>
-            <div id= "main">
-                <h1>Coding Quiz Challenge</h1>
+         <!---Body-->
+        <main class="container">
+             <!---Quiz Intro-->
+            <div id= "intro">
+                <h1 id="start">Coding Quiz Challenge</h1>
                 <p class="rules">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-                <button class="btn-start" id="start-quiz" type="submit">Start Quiz!</button>
+                <button class="btnStart" id="startQuiz" type="submit">Start Quiz!</button>
             </div>
+            <!---Quiz Questions-->
             <div id= "quiz">
                 <div id= "question"></div>
                     <div id= "choices">
@@ -27,19 +31,32 @@
                         <div class="choice option-3" id="3" onclick="checkAnswer('3')"></div>
                         <div class="choice option-4" id="4" onclick="checkAnswer('4')"></div>
                     </div>
+                 <!---Answer Right or Wrong--->
                 <div id="output"> </div>
             </div>
-            <div id="final">
-                <div id="end"></div>
-                <div id= result></div>
-                <div id="initials">
-                    <label for="user-info">Enter Initials:</label>
-                    <input type="text" id="contact-name"> 
-                    <button class="btn-submit" id= "user-info" type="submit">Submit</button>  
-                </div>
+             <!---Score Info-->
+            <div id="finalScore">
+                <h2 id="endMessage">All done!</h2>
+                <div id="scoresIs"></div>
+                 <!---Form to enter initials-->
+                 <form >
+                    <div id="initials">
+                        <label for="user-info">Enter Initials:</label>
+                        <input type="text" id="contact"> 
+                        <button id= "userInfo" class="submitBtn" type="submit">Submit</button>  
+                    </div>
+                </form>
             </div>
-            <div id="highscore">
-                
+             <!---High Scores-->
+             <div id="highScoreButtons" >
+                <h2>High Scores</h2>
+                <p id="highCoreList"></p>
+                <div class="endBtn">
+                    <button id="goBack" class="backBtn" type="submit">Go Back</button>
+                </div>
+                <div class="clearBtn">
+                    <button id="clear" class="btn" type="submit">Clear High Scores</button>
+                </div>
             </div>
         </main> 
         <script src="./assets/script.js"></script>
