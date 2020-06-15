@@ -150,18 +150,17 @@ userInfo.addEventListener("click", function() {
 
 var contactInfo = document.getElementById("contactInfo").value;
 
-localStorage.setItem("contactInfo", contactInfo);
-localStorage.setItem("timeLeft", timeLeft);
+localStorage.setItem("contactInfo", JSON.stringify(contactInfo));
+localStorage.setItem("timeLeft", JSON.stringify (timeLeft));
 
 function renderFinalScores() {
-    var timeLeft = localStorage.getItem("timeLeft");
+    var timeLeft =localStorage.getItem("timeLeft");
 }
 renderFinalScores();
 
 function renderInitials() {
     var contactInfo = localStorage.getItem("contactInfo");
 }
-//debugger;
 renderInitials();
 highScorePage();
 });
@@ -174,6 +173,16 @@ function highScorePage () {
     finalScore.style.display = "none";
     submitButton.style.display = "none"; 
     highScore.style.display = "block";
+
+    var highScores = [];
+
+    for (var i = 0; i < highScores.length; i++) {
+        var highScores = highScores[i];
+        
+        var highScoresEl = document.createElement("li");
+        highScoresEl.innerText = contactInfo + timeLeft;
+        listhighScoresEl.appendChild(highScoresEl);       
+}
 };
 
   // GO BACK BUTTON 
