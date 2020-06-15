@@ -86,11 +86,11 @@ ul {
     border-radius: 5px;
     width: 160px;
     height: 30px;
-    background-color: var(--primary-color);
+    background-color: white;
     margin-top: 10px;
     padding-left: 10px;
     padding-top: 2px;
-    color: var(--tertiary-color);
+    color: black;
     font-size: small;
     text-align: left;
     outline: none;

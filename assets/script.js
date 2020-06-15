@@ -55,6 +55,12 @@ var questions = [
     choice4 : "4. console.log",
     correct: "4"
     },
+    {question: "",
+    choice1 : "",
+    choice2 : "",
+    choice3 : "",
+    choice4 : "",
+    }
 ]  
 
 //Challenge Page
@@ -83,23 +89,19 @@ function startGame() {
 
     var timeInterval = setInterval(function() {
         timer.textContent = "Time:" + timeLeft + "s";
-        timeLeft--;
+        timeLeft-=1;
 
-        if(timeLeft === 0 )  {
-           clearInterval(timeInterval);
-           timeLeft.textContent = "";
-           renderResults();
-        }
-        else if (questions.length === runningQuestionIndex) {
-            setTimeout(timeInterval, 3* 1000);
+        if(timeLeft === 0 || questions.length === runningQuestionIndex+1)  {
+            clearInterval(timeInterval);
             timer.textContent = "";
-            renderResults();
-        }
-
+            resultRender();
+         }
     }, 1000);
-};
+}
+
+
 // Display Questions 
-var lastQuestionIndex= questions.length;
+var lastQuestionIndex = questions.length +1;
 var runningQuestionIndex = 0;    
 
 function renderQuestion() {
@@ -125,6 +127,7 @@ function checkAnswer(answer) {
     }  
     if(questions.length === runningQuestionIndex+1) {
         resultRender();
+        return;
     }
         runningQuestionIndex++;
         renderQuestion();
@@ -136,7 +139,10 @@ function resultRender() {
    quiz.style.display = "none";
    highScore.style.display = "none";
    finalScore.style.display = "block";
-   result.textContent = "Your final score is " + timeLeft + ".";
+
+   if (timeLeft === 0 || questions.length -1) { 
+    result.textContent = "Your final score is " + timeLeft;
+   }
 };
 
 //Capture Score and Initials 
@@ -155,6 +161,7 @@ renderFinalScores();
 function renderInitials() {
     var contactInfo = localStorage.getItem("contactInfo");
 }
+//debugger;
 renderInitials();
 highScorePage();
 });
