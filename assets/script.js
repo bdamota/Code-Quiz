@@ -131,6 +131,7 @@ function renderCaptureInput() {
 };
     renderCaptureInput();
 
+<<<<<<< HEAD
 function displayMessage(type, message) {
         contact.textContent = message;
         contact.setAttribute("class", type);
@@ -151,6 +152,13 @@ function displayMessage(type, message) {
         displayMessage();
     //link high scores to link
 
+=======
+function captureInput() {
+    initials.style.display = "block";  
+    //capture and save info to local 
+    //link high scores to lin
+};
+>>>>>>> b8a035ab8b0b08aa0b4fbcd3381e4640a168e0ad
 
 //add buttons for go back and clear high scores & css
 
