@@ -70,7 +70,7 @@ startBtn.addEventListener("click", startGame);
 
 
 // Timer Function Begin
-var timeLeft = 75;
+var timeLeft = 65;
 var timer = document.getElementById("timer");
 
 // Start Game
@@ -85,17 +85,21 @@ function startGame() {
         timer.textContent = "Time:" + timeLeft + "s";
         timeLeft--;
 
-        if(timeLeft === 0 || questions.length === runningQuestionIndex +1)  {
+        if(timeLeft === 0 )  {
            clearInterval(timeInterval);
-           timer.innerHTML = "";
-           resultRender();
+           timeLeft.textContent = "";
+           renderResults();
         }
+        else if (questions.length === runningQuestionIndex) {
+            setTimeout(timeInterval, 3* 1000);
+            timer.textContent = "";
+            renderResults();
+        }
+
     }, 1000);
 };
-
-
 // Display Questions 
-var lastQuestionIndex= questions.length -1;
+var lastQuestionIndex= questions.length;
 var runningQuestionIndex = 0;    
 
 function renderQuestion() {
@@ -121,7 +125,6 @@ function checkAnswer(answer) {
     }  
     if(questions.length === runningQuestionIndex+1) {
         resultRender();
-        return;
     }
         runningQuestionIndex++;
         renderQuestion();
@@ -133,10 +136,7 @@ function resultRender() {
    quiz.style.display = "none";
    highScore.style.display = "none";
    finalScore.style.display = "block";
-
-   if (timeLeft === 0 || questions.length -1) { 
-    result.textContent = "Your final score is " + timeLeft;
-   }
+   result.textContent = "Your final score is " + timeLeft;
 };
 
 //Capture Score and Initials 
@@ -155,7 +155,6 @@ renderFinalScores();
 function renderInitials() {
     var contactInfo = localStorage.getItem("contactInfo");
 }
-//debugger;
 renderInitials();
 highScorePage();
 });
