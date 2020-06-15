@@ -9,7 +9,7 @@
     <body>
          <!---Header with timer and high score link-->
         <header>
-            <div class="header">
+            <div id="header">
                 <a id= "score" href="#">View High Scores</a>
                 <h2 id="timer"></h2>
             </div>
@@ -19,38 +19,40 @@
              <!---Quiz Intro-->
             <div id= "intro">
                 <h1 id="start">Coding Quiz Challenge</h1>
-                <p class="rules">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-                <button class="btnStart" id="startQuiz" type="submit">Start Quiz!</button>
+                <p id="rules">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+                <button class="btnStart" id="startBtn" type="submit">Start Quiz!</button>
             </div>
             <!---Quiz Questions-->
             <div id= "quiz">
                 <div id= "question"></div>
                     <div id= "choices">
-                        <div class="choice option-1" id="1" onclick="checkAnswer('1')"></div>
-                        <div class="choice option-2" id="2" onclick="checkAnswer('2')"></div>
-                        <div class="choice option-3" id="3" onclick="checkAnswer('3')"></div>
-                        <div class="choice option-4" id="4" onclick="checkAnswer('4')"></div>
+                        <ul>
+                            <li><button type="button" class="choice option-1" id="1" onclick="checkAnswer('1')"></button></li>
+                            <li><button type="button" class="choice option-2" id="2" onclick="checkAnswer('2')"></button></li>
+                            <li><button type="button" class="choice option-3" id="3" onclick="checkAnswer('3')"></button></li>
+                            <li><button type="button" class="choice option-4" id="4" onclick="checkAnswer('4')"></button></li>
+                        </ul>
                     </div>
                  <!---Answer Right or Wrong--->
-                <div id="output"> </div>
+                <div id="answerOutput"> </div>
             </div>
              <!---Score Info-->
             <div id="finalScore">
                 <h2 id="endMessage">All done!</h2>
-                <div id="scoresIs"></div>
+                <div id="result"></div>
                  <!---Form to enter initials-->
                  <form >
                     <div id="initials">
-                        <label for="user-info">Enter Initials:</label>
-                        <input type="text" id="contact"> 
+                        <label for="users" id="name">Enter Initials:</label>
+                        <input type="text" id="contactInfo">
                         <button id= "userInfo" class="submitBtn" type="submit">Submit</button>  
                     </div>
                 </form>
             </div>
              <!---High Scores-->
              <div id="highScoreButtons" >
-                <h2>High Scores</h2>
-                <p id="highCoreList"></p>
+                <h2 id="highScoreHead">High Scores</h2>
+                <p id="highScoreList"></p>
                 <div class="endBtn">
                     <button id="goBack" class="backBtn" type="submit">Go Back</button>
                 </div>
