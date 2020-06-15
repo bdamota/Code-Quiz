@@ -70,7 +70,7 @@ startBtn.addEventListener("click", startGame);
 
 
 // Timer Function Begin
-var timeLeft = 65;
+var timeLeft = 75;
 var timer = document.getElementById("timer");
 
 // Start Game
@@ -136,7 +136,7 @@ function resultRender() {
    quiz.style.display = "none";
    highScore.style.display = "none";
    finalScore.style.display = "block";
-   result.textContent = "Your final score is " + timeLeft;
+   result.textContent = "Your final score is " + timeLeft + ".";
 };
 
 //Capture Score and Initials 
