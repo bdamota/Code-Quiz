@@ -170,14 +170,15 @@ function highScorePage () {
     highScore.style.display = "block";
 };
 
-  // GO BACK BUTTON EVENT liSTENER 
+  // GO BACK BUTTON 
 goBack.addEventListener("click", function() { // Go back to the home page
-    intro.style.display = "block"; 
-    header.style.display = "block"; // Hide header 
-    finalScore.style.display = "none";
+    startBtn.style.display = "block";
+    intro.style.display = "block";
+    score.style.display = "block";
+    highScore.style.display = "none";
   })
   
-  // CLEAR HIGH SCORES - WORKS
+  // CLEAR HIGH SCORES 
   clear.addEventListener("click", function() {
     localStorage.clear();
   })
