@@ -80,7 +80,7 @@ startBtn.addEventListener("click", startGame);
 
 
 // Timer Function Begin
-var timeLeft = 5;
+var timeLeft = 75;
 var startScore = 0;
 var timer = document.getElementById("timer");
 
