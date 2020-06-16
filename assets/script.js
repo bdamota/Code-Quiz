@@ -80,7 +80,7 @@ startBtn.addEventListener("click", startGame);
 
 
 // Timer Function Begin
-var timeLeft = 55;
+var timeLeft = 5;
 var startScore = 0;
 var timer = document.getElementById("timer");
 
@@ -130,16 +130,12 @@ function checkAnswer(answer) {
     else {
        answerOutput.textContent = "Wrong!"
        timeLeft -=10;
-
-        if (timeLeft < 0) {
-        timeLeft = 0;
     }
 
     if (questions.length === runningQuestionIndex+1) {
         resultRender(); // If it has gone through all questions, show final score
         return;
     }
-    } 
         runningQuestionIndex++;
         renderQuestion();
     };   
@@ -160,21 +156,11 @@ function resultRender() {
 userInfo.addEventListener("click", function() {
 
     var contactInfo = document.getElementById("contactInfo").value;
-
-    localStorage.setItem("contactInfo", JSON.stringify(contactInfo));
-    localStorage.setItem("timeLeft", JSON.stringify (timeLeft));
-
-function renderFinalScores() {
-    var timeLeft = localStorage.getItem("timeLeft");
-}
-renderFinalScores();
-
-function renderInitials() {
-    var contactInfo = localStorage.getItem("contactInfo");
-}
-renderInitials();
-highScorePage();
-});
+    
+    localStorage.setItem("contactInfo", contactInfo);
+    localStorage.setItem("timeLeft", timeLeft);
+    highScorePage();
+    });
 
 function highScorePage () {
     score.style.display = "none";
@@ -189,12 +175,16 @@ function highScorePage () {
 
     for (var i = 0; i < highScores.length; i++) {
       var highScores = highScores[i];
+      renderFinalScores();
+      renderInitials();
+    }
+
+    function renderFinalScores() {
+        var timeLeft = localStorage.getItem("timeLeft");
+    }
     
-      debugger;
-      var li = document.createElement("li");
-      li.textContent = highScores;
-      contactInfor.appendChild(li);
-      timeLeft.appendChild(li);
+    function renderInitials() {
+        var contactInfo = localStorage.getItem("contactInfo");
     }
 };
 
