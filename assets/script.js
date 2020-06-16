@@ -1,5 +1,5 @@
 // Variable Declarations 
-var header = document.getElementById("header")
+var header = document.getElementById("header");
 var intro = document.getElementById("intro");
 var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
@@ -11,7 +11,6 @@ var choice4= document.getElementById("4");
 var finalScore= document.getElementById("finalScore");
 var endMessage = document.getElementById("endMessage");
 var result = document.getElementById("result");
-var initials= document.getElementById("initials");
 var submitButton = document.getElementById("userInfo");
 var highScore = document.getElementById("highScore");
 var goBackBtn = document.getElementById("goBack");
@@ -55,18 +54,23 @@ var questions = [
     choice4 : "4. console.log",
     correct: "4"
     },
-    {question: "",
-    choice1 : "",
-    choice2 : "",
-    choice3 : "",
-    choice4 : "",
+    {question: "A very useful tool used during development and debugging for printing content to the debugger is:", 
+    choice1 : "1. JavaScript",
+    choice2 : "2. terminal/bash",
+    choice3 : "3. for loops",
+    choice4 : "4. console.log",
+    correct: "4"
     }
 ]  
 
 //Challenge Page
+header.style.display = "block";
+intro.style.display = "block";
 quiz.style.display = "none";
 finalScore.style.display = "none";
 highScore.style.display = "none";
+
+
 
 //Variable for Start Quiz Button
 var startBtn = document.getElementById("startBtn");
@@ -76,16 +80,20 @@ startBtn.addEventListener("click", startGame);
 
 
 // Timer Function Begin
-var timeLeft = 75;
+var timeLeft = 55;
+var startScore = 0;
 var timer = document.getElementById("timer");
+
+timer.textContent = "Time: " + startScore;
 
 // Start Game
 function startGame() {
-    intro.style.display = "none";
     quiz.style.display = "block";
     question.style.display ="block";
-
-    renderQuestion();
+    header.style.display = "block";
+    intro.style.display = "none";
+    finalScore.style.display = "none";
+    highScore.style.display = "none";
 
     var timeInterval = setInterval(function() {
         timer.textContent = "Time:" + timeLeft + "s";
@@ -97,11 +105,12 @@ function startGame() {
             resultRender();
          }
     }, 1000);
-}
 
+    renderQuestion();
+};
 
 // Display Questions 
-var lastQuestionIndex = questions.length +1;
+var lastQuestionIndex = questions.length -1;
 var runningQuestionIndex = 0;    
 
 function renderQuestion() {
@@ -121,40 +130,42 @@ function checkAnswer(answer) {
     else {
        answerOutput.textContent = "Wrong!"
        timeLeft -=10;
+
+        if (timeLeft < 0) {
+        timeLeft = 0;
     }
-    if(timeLeft < 0) {
-       timeLeft = 0;
-    }  
-    if(questions.length === runningQuestionIndex+1) {
-        resultRender();
+
+    if (questions.length === runningQuestionIndex+1) {
+        resultRender(); // If it has gone through all questions, show final score
         return;
     }
+    } 
         runningQuestionIndex++;
         renderQuestion();
-
-};   
+    };   
 
 //Score Quiz
 function resultRender() {
    quiz.style.display = "none";
+   intro.style.display = "none";
    highScore.style.display = "none";
    finalScore.style.display = "block";
 
    if (timeLeft === 0 || questions.length -1) { 
-    result.textContent = "Your final score is " + timeLeft;
+    result.textContent = "Your final score is " + timeLeft + ".";
    }
 };
 
 //Capture Score and Initials 
 userInfo.addEventListener("click", function() {
 
-var contactInfo = document.getElementById("contactInfo").value;
+    var contactInfo = document.getElementById("contactInfo").value;
 
-localStorage.setItem("contactInfo", JSON.stringify(contactInfo));
-localStorage.setItem("timeLeft", JSON.stringify (timeLeft));
+    localStorage.setItem("contactInfo", JSON.stringify(contactInfo));
+    localStorage.setItem("timeLeft", JSON.stringify (timeLeft));
 
 function renderFinalScores() {
-    var timeLeft =localStorage.getItem("timeLeft");
+    var timeLeft = localStorage.getItem("timeLeft");
 }
 renderFinalScores();
 
@@ -177,12 +188,14 @@ function highScorePage () {
     var highScores = [];
 
     for (var i = 0; i < highScores.length; i++) {
-        var highScores = highScores[i];
-        
-        var highScoresEl = document.createElement("li");
-        highScoresEl.innerText = contactInfo + timeLeft;
-        listhighScoresEl.appendChild(highScoresEl);       
-}
+      var highScores = highScores[i];
+    
+      debugger;
+      var li = document.createElement("li");
+      li.textContent = highScores;
+      contactInfor.appendChild(li);
+      timeLeft.appendChild(li);
+    }
 };
 
   // GO BACK BUTTON 
@@ -190,6 +203,8 @@ goBack.addEventListener("click", function() { // Go back to the home page
     startBtn.style.display = "block";
     intro.style.display = "block";
     score.style.display = "block";
+    quiz.style.display = "none";
+    finalScore.style.display = "none";
     highScore.style.display = "none";
   })
   
