@@ -50,13 +50,6 @@ var questions = [
     choice4 : "4. console.log",
     correct: "4"
     },
-    {question: "A very useful tool used during development and debugging for printing content to the debugger is:", 
-    choice1 : "1. JavaScript",
-    choice2 : "2. terminal/bash",
-    choice3 : "3. for loops",
-    choice4 : "4. console.log",
-    correct: "4"
-    }
 ]  
 
 //Challenge Page
@@ -91,7 +84,7 @@ function startGame() {
         timer.textContent = "Time:" + timeLeft + "s";
         timeLeft-=1;
 
-        if(timeLeft === 0 || questions.length === runningQuestionIndex+1)  {
+        if(timeLeft === 0 || questions.length === runningQuestionIndex+-1)  {
             resultRender();
             clearInterval(timeInterval);
             timer.textContent = "Time:" + timeLeft + "s";
@@ -102,7 +95,7 @@ function startGame() {
 };
 
 // Display Questions 
-var lastQuestionIndex = questions.length -1;
+var lastQuestionIndex = questions.length-1;
 var runningQuestionIndex = 0;    
 
 function renderQuestion() {
