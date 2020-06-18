@@ -50,6 +50,13 @@ var questions = [
     choice4 : "4. console.log",
     correct: "4"
     },
+    { question: "A very useful tool used during development and debugging for printing content to the debugger is:", 
+    choice1 : "1. JavaScript",
+    choice2 : "2. terminal/bash",
+    choice3 : "3. for loops",
+    choice4 : "4. console.log",
+    correct: "4"
+    },
 ]  
 
 //Challenge Page
@@ -84,7 +91,7 @@ function startGame() {
         timer.textContent = "Time:" + timeLeft + "s";
         timeLeft-=1;
 
-        if(timeLeft === 0 || questions.length === runningQuestionIndex+-1)  {
+        if(timeLeft === 0 || questions.length === runningQuestionIndex+1)  {
             resultRender();
             clearInterval(timeInterval);
             timer.textContent = "Time:" + timeLeft + "s";
@@ -95,7 +102,7 @@ function startGame() {
 };
 
 // Display Questions 
-var lastQuestionIndex = questions.length-1;
+var lastQuestionIndex = questions.length -1;
 var runningQuestionIndex = 0;    
 
 function renderQuestion() {
@@ -138,28 +145,29 @@ function resultRender() {
 
 //Capture Score and Initials 
 userInfo.addEventListener("click", function() {
-
     var contactInfo = document.getElementById("contactInfo").value;
-    
-    localStorage.setItem("contactInfo", contactInfo);
-    localStorage.setItem("timeLeft", timeLeft);
-    highScorePage();
-    });
 
-function highScorePage () {
-    var highScores = [];
+    localStorage.setItem("contactInfo", JSON.stringify (contactInfo));
+    localStorage.setItem("timeLeft", JSON.stringify(timeLeft));
 
-    for (var i = 0; i < highScores.length; i++) {
-      var highScores = highScores[i];
-      renderFinalScores();
-      renderInitials();
-    }
+    localStorage.getItem("contactInfo", contactInfo);
+    localStorage.getItem("timeLeft", timeLeft);
+
+    highScores = JSON.parse(contactInfo,timeLeft);
 
     function renderFinalScores() {
         var timeLeft = localStorage.getItem("timeLeft");
     }
+    renderFinalScores();
     
     function renderInitials() {
         var contactInfo = localStorage.getItem("contactInfo");
     }
-};
+    renderInitials();
+
+    highScorePage();
+    });
+
+
+
+
