@@ -10,7 +10,7 @@
          <!---Header with timer and high score link-->
         <header>
             <div id="header">
-                <a id= "score" href="#">View High Scores</a>
+                <a id= "score" href="highscore.html">View High Scores</a> 
                 <h2 id="timer"></h2>
             </div>
         </header>
@@ -45,24 +45,9 @@
                     <div id="initials">
                         <label for="users" id="name">Enter Initials:</label>
                         <input type="text" id="contactInfo">
-                        <button id= "userInfo" class="submitBtn" type="submit">Submit</button>  
+                        <input type="button" id= "userInfo" class="submitBtn" onclick="location.href='highscore.html';" value="Submit" />
                     </div>
                 </form>
-            </div>
-             <!---High Scores-->
-             <div id="highScore" >
-                <div class= highScoreList>
-                    <h2 >High Scores</h2>
-                    <ol id="listLine">
-                        <li></li>
-                    </ol>
-                </div>
-                <div class="endBtn">
-                    <button id="goBack" class="backBtn" type="submit">Go Back</button>
-                </div>
-                <div class="clearBtn">
-                    <button id="clear" class="btn" type="submit">Clear High Scores</button>
-                </div>
             </div>
         </main> 
         <script src="./assets/script.js"></script>

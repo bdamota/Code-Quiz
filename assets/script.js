@@ -11,10 +11,6 @@ var choice4= document.getElementById("4");
 var finalScore= document.getElementById("finalScore");
 var endMessage = document.getElementById("endMessage");
 var result = document.getElementById("result");
-var submitButton = document.getElementById("userInfo");
-var highScore = document.getElementById("highScore");
-var goBackBtn = document.getElementById("goBack");
-var clearBtn = document.getElementById("clear");
 var scoreList = document.getElementById("scorelist");
 
 //The array of questions 
@@ -54,23 +50,19 @@ var questions = [
     choice4 : "4. console.log",
     correct: "4"
     },
-    {question: "A very useful tool used during development and debugging for printing content to the debugger is:", 
+    { question: "A very useful tool used during development and debugging for printing content to the debugger is:", 
     choice1 : "1. JavaScript",
     choice2 : "2. terminal/bash",
     choice3 : "3. for loops",
     choice4 : "4. console.log",
     correct: "4"
-    }
+    },
 ]  
 
 //Challenge Page
-header.style.display = "block";
 intro.style.display = "block";
 quiz.style.display = "none";
 finalScore.style.display = "none";
-highScore.style.display = "none";
-
-
 
 //Variable for Start Quiz Button
 var startBtn = document.getElementById("startBtn");
@@ -84,7 +76,7 @@ var timeLeft = 75;
 var startScore = 0;
 var timer = document.getElementById("timer");
 
-timer.textContent = "Time: " + startScore;
+timer.textContent = "Time: " + startScore + "s";
 
 // Start Game
 function startGame() {
@@ -93,16 +85,16 @@ function startGame() {
     header.style.display = "block";
     intro.style.display = "none";
     finalScore.style.display = "none";
-    highScore.style.display = "none";
+
 
     var timeInterval = setInterval(function() {
         timer.textContent = "Time:" + timeLeft + "s";
         timeLeft-=1;
 
         if(timeLeft === 0 || questions.length === runningQuestionIndex+1)  {
-            clearInterval(timeInterval);
-            timer.textContent = "";
             resultRender();
+            clearInterval(timeInterval);
+            timer.textContent = "Time:" + timeLeft + "s";
          }
     }, 1000);
 
@@ -144,7 +136,6 @@ function checkAnswer(answer) {
 function resultRender() {
    quiz.style.display = "none";
    intro.style.display = "none";
-   highScore.style.display = "none";
    finalScore.style.display = "block";
 
    if (timeLeft === 0 || questions.length -1) { 
@@ -154,57 +145,29 @@ function resultRender() {
 
 //Capture Score and Initials 
 userInfo.addEventListener("click", function() {
-
     var contactInfo = document.getElementById("contactInfo").value;
-    
-    localStorage.setItem("contactInfo", contactInfo);
-    localStorage.setItem("timeLeft", timeLeft);
-    highScorePage();
-    });
 
-function highScorePage () {
-    score.style.display = "none";
-    startBtn.style.display = "none";
-    quiz.style.display = "none";
-    endMessage.style.display = "none";
-    finalScore.style.display = "none";
-    submitButton.style.display = "none"; 
-    highScore.style.display = "block";
+    localStorage.setItem("contactInfo", JSON.stringify (contactInfo));
+    localStorage.setItem("timeLeft", JSON.stringify(timeLeft));
 
-    var highScores = [];
+    localStorage.getItem("contactInfo", contactInfo);
+    localStorage.getItem("timeLeft", timeLeft);
 
-    for (var i = 0; i < highScores.length; i++) {
-      var highScores = highScores[i];
-      renderFinalScores();
-      renderInitials();
-    }
+    highScores = JSON.parse(contactInfo,timeLeft);
 
     function renderFinalScores() {
         var timeLeft = localStorage.getItem("timeLeft");
     }
+    renderFinalScores();
     
     function renderInitials() {
         var contactInfo = localStorage.getItem("contactInfo");
     }
-};
+    renderInitials();
 
-  // GO BACK BUTTON 
-goBack.addEventListener("click", function() { // Go back to the home page
-    startBtn.style.display = "block";
-    intro.style.display = "block";
-    score.style.display = "block";
-    quiz.style.display = "none";
-    finalScore.style.display = "none";
-    highScore.style.display = "none";
-  })
-  
-  // CLEAR HIGH SCORES 
-  clear.addEventListener("click", function() {
-    localStorage.clear();
-  })
-  
-  // Click to view high scores
-  score.addEventListener("click", function() {
-    intro.style.display = "none"; 
     highScorePage();
-  });
+    });
+
+
+
+
