@@ -11,10 +11,6 @@ var choice4= document.getElementById("4");
 var finalScore= document.getElementById("finalScore");
 var endMessage = document.getElementById("endMessage");
 var result = document.getElementById("result");
-var submitButton = document.getElementById("userInfo");
-var highScore = document.getElementById("highScore");
-var goBackBtn = document.getElementById("goBack");
-var clearBtn = document.getElementById("clear");
 var scoreList = document.getElementById("scorelist");
 
 //The array of questions 
@@ -64,13 +60,9 @@ var questions = [
 ]  
 
 //Challenge Page
-header.style.display = "block";
 intro.style.display = "block";
 quiz.style.display = "none";
 finalScore.style.display = "none";
-highScore.style.display = "none";
-
-
 
 //Variable for Start Quiz Button
 var startBtn = document.getElementById("startBtn");
@@ -93,7 +85,7 @@ function startGame() {
     header.style.display = "block";
     intro.style.display = "none";
     finalScore.style.display = "none";
-    highScore.style.display = "none";
+
 
     var timeInterval = setInterval(function() {
         timer.textContent = "Time:" + timeLeft + "s";
@@ -105,7 +97,7 @@ function startGame() {
             resultRender();
          }
     }, 1000);
-
+ //debugger;
     renderQuestion();
 };
 
@@ -144,7 +136,6 @@ function checkAnswer(answer) {
 function resultRender() {
    quiz.style.display = "none";
    intro.style.display = "none";
-   highScore.style.display = "none";
    finalScore.style.display = "block";
 
    if (timeLeft === 0 || questions.length -1) { 
@@ -153,23 +144,14 @@ function resultRender() {
 };
 
 //Capture Score and Initials 
-userInfo.addEventListener("click", function() {
-
     var contactInfo = document.getElementById("contactInfo").value;
     
     localStorage.setItem("contactInfo", contactInfo);
     localStorage.setItem("timeLeft", timeLeft);
     highScorePage();
-    });
+
 
 function highScorePage () {
-    score.style.display = "none";
-    startBtn.style.display = "none";
-    quiz.style.display = "none";
-    endMessage.style.display = "none";
-    finalScore.style.display = "none";
-    submitButton.style.display = "none"; 
-    highScore.style.display = "block";
 
     var highScores = [];
 
@@ -188,23 +170,12 @@ function highScorePage () {
     }
 };
 
-  // GO BACK BUTTON 
-goBack.addEventListener("click", function() { // Go back to the home page
-    startBtn.style.display = "block";
-    intro.style.display = "block";
-    score.style.display = "block";
-    quiz.style.display = "none";
-    finalScore.style.display = "none";
-    highScore.style.display = "none";
-  })
-  
-  // CLEAR HIGH SCORES 
+  // Clear High Scores
+
+  var clear = document.getElementById("clear");
+
   clear.addEventListener("click", function() {
     localStorage.clear();
   })
   
-  // Click to view high scores
-  score.addEventListener("click", function() {
-    intro.style.display = "none"; 
-    highScorePage();
-  });
+ 
