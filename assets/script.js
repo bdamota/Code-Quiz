@@ -76,7 +76,7 @@ var timeLeft = 75;
 var startScore = 0;
 var timer = document.getElementById("timer");
 
-timer.textContent = "Time: " + startScore;
+timer.textContent = "Time: " + startScore + "s";
 
 // Start Game
 function startGame() {
@@ -92,12 +92,12 @@ function startGame() {
         timeLeft-=1;
 
         if(timeLeft === 0 || questions.length === runningQuestionIndex+1)  {
-            clearInterval(timeInterval);
-            timer.textContent = "";
             resultRender();
+            clearInterval(timeInterval);
+            timer.textContent = "Time:" + timeLeft + "s";
          }
     }, 1000);
- //debugger;
+
     renderQuestion();
 };
 
@@ -171,10 +171,8 @@ function highScorePage () {
 };
 
   // Clear High Scores
-
-  var clear = document.getElementById("clear");
-
   clear.addEventListener("click", function() {
+    var clear = document.getElementById("clear");
     localStorage.clear();
   })
   
