@@ -170,10 +170,5 @@ function highScorePage () {
     }
 };
 
-  // Clear High Scores
-  clear.addEventListener("click", function() {
-    var clear = document.getElementById("clear");
-    localStorage.clear();
-  })
   
  
