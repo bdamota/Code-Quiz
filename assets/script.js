@@ -144,15 +144,16 @@ function resultRender() {
 };
 
 //Capture Score and Initials 
+userInfo.addEventListener("click", function() {
+
     var contactInfo = document.getElementById("contactInfo").value;
     
     localStorage.setItem("contactInfo", contactInfo);
     localStorage.setItem("timeLeft", timeLeft);
     highScorePage();
-
+    });
 
 function highScorePage () {
-
     var highScores = [];
 
     for (var i = 0; i < highScores.length; i++) {
@@ -169,6 +170,3 @@ function highScorePage () {
         var contactInfo = localStorage.getItem("contactInfo");
     }
 };
-
-  
- 

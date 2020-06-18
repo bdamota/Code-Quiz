@@ -5,3 +5,7 @@ var clearBtn = document.getElementById("clear");
 clearBtn.addEventListener("click", function() {
     localStorage.clear();
 })
+
+
+
+
