@@ -161,13 +161,18 @@ userInfo.addEventListener("click", function() {
 //Load Scores 
     var loadScores = function() {
     var savedScores = localStorage.getItem("contactInfo, timeLeft");
+    var savedScores = [];
     
         if (!savedScores) {
             return false;
         }
-        else {
-            $("#highScoreList").append(savedScores);
+        else{
+            document.getElementById("listLine").innerHTML = localStorage.getItem("contactInfo, timeLeft");
         }
+         for (var i = 0; i < savedScores.length; i++) {
+          var savedScores = savedScores[i];
+    
+        }       
 };
 
 
