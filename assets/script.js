@@ -13,6 +13,7 @@ var endMessage = document.getElementById("endMessage");
 var result = document.getElementById("result");
 var scoreList = document.getElementById("scorelist");
 
+
 //The array of questions 
 var questions = [
     { question: 'Commonly used data types DO NOT include:', 
@@ -150,23 +151,25 @@ userInfo.addEventListener("click", function() {
     localStorage.setItem("contactInfo", JSON.stringify (contactInfo));
     localStorage.setItem("timeLeft", JSON.stringify(timeLeft));
 
-    localStorage.getItem("contactInfo", contactInfo);
-    localStorage.getItem("timeLeft", timeLeft);
+    JSON.parse(localStorage.getItem("contactInfo", contactInfo));
+    JSON.parse(localStorage.getItem("timeLeft", timeLeft));
 
-    highScores = JSON.parse(contactInfo,timeLeft);
-
-    function renderFinalScores() {
-        var timeLeft = localStorage.getItem("timeLeft");
-    }
-    renderFinalScores();
-    
-    function renderInitials() {
-        var contactInfo = localStorage.getItem("contactInfo");
-    }
-    renderInitials();
-
-    highScorePage();
+    loadScores();
     });
+
+
+//Load Scores 
+    var loadScores = function() {
+    var savedScores = localStorage.getItem("contactInfo, timeLeft");
+    
+        if (!savedScores) {
+            return false;
+        }
+        else {
+            $("#highScoreList").append(savedScores);
+        }
+};
+
 
 
 
