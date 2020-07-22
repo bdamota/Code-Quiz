@@ -150,30 +150,11 @@ userInfo.addEventListener("click", function() {
 
     localStorage.setItem("contactInfo", JSON.stringify (contactInfo));
     localStorage.setItem("timeLeft", JSON.stringify(timeLeft));
-
-    JSON.parse(localStorage.getItem("contactInfo", contactInfo));
-    JSON.parse(localStorage.getItem("timeLeft", timeLeft));
-
+    
     loadScores();
     });
 
 
-//Load Scores 
-    var loadScores = function() {
-    var savedScores = localStorage.getItem("contactInfo, timeLeft");
-    var savedScores = [];
-    
-        if (!savedScores) {
-            return false;
-        }
-        else{
-            document.getElementById("listLine").innerHTML = localStorage.getItem("contactInfo, timeLeft");
-        }
-         for (var i = 0; i < savedScores.length; i++) {
-          var savedScores = savedScores[i];
-    
-        }       
-};
 
 
 

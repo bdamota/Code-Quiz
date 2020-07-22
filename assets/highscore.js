@@ -5,19 +5,28 @@ clearBtn.addEventListener("click", function() {
     localStorage.clear();
 })
 
+var finalScore = {
+  contactInfo: 'Briana',
+  timeleft: "30"
+}
 
-// Show Scores and Initials
-function highScorePage () {
+var finalScore = [];
 
-    var highScores = [];
-    var highScores = [contactInfo, timeLeft];
 
-    for (var i = 0; i < highScores.length; i++) {
-      var highScores = highScores[i];
-
-      var li = document.createElement("li");
-      li.textContent = highScores;
-      contactInfo.appendChild(li);
-      timeLeft.appendChild(li);
-    }
+//Load Scores 
+var loadScores = function() {
+  var finalScore = localStorage.getItem("contactInfo, timeLeft");
+  
+      if (!finalScore) {
+          return false;
+      }
+    
+       for (var i = 0; i < finalScore.length; i++) {
+        var finalScore = finalScore[i];
+        var listItemEl = document.createElement("li");
+        listItemEl.textContent = finalScore;
+      }    
+    finalScore.push(finalScore)   
 };
+
+
