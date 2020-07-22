@@ -14,7 +14,7 @@ A timed quiz that tests users' coding knowledge. Project to fulfill the followin
 * JavaScript
 
 ## SCREENSHOT:
-![image](https://github.com/bdamota/Code-Quiz/blob/master/Screen%20Shot%202020-06-15%20at%202.15.01%20AM.png)
+![image](https://github.com/bdamota/Code-Quiz/blob/master/Screen%20Shot%202020-07-21%20at%2010.47.30%20PM.png)
 
 ## DEPLOYED SITE:
 https://bdamota.github.io/Code-Quiz/
